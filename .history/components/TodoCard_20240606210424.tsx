@@ -32,8 +32,8 @@ const TodoCard = ({todo,index,id,innerRef,draggableProps,dragHandleProps}: Props
             {todo.image && <img 
             // priority
                   src={todo.image?.fileId} alt={todo.title}
-                    // placeholder="blur"
-                    
+                    placeholder="blur"
+                    blurDataURL={todo.image?.fileId}
               className='w-full mt-4 rounded-b-2xl' width={300}
                height={300}/>}
            
