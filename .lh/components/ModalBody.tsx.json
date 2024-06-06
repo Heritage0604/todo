@@ -1,0 +1,38 @@
+{
+    "sourceFile": "components/ModalBody.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1699014559245,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1699014569381,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,11 @@\n   ModalBody,\r\n   ModalCloseButton,\r\n } from '@chakra-ui/react'\r\n \r\n-type\r\n+type Props:{\r\n+  isOpen:boolean\r\n+}\r\n \r\n  const ModalBodyForm=()=>{\r\n return (\r\n     <div>\r\n"
+                },
+                {
+                    "date": 1699014594268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   ModalCloseButton,\r\n } from '@chakra-ui/react'\r\n \r\n type Props:{\r\n-  isOpen:boolean\r\n+  isOpen:boolean,\r\n }\r\n \r\n  const ModalBodyForm=()=>{\r\n return (\r\n"
+                },
+                {
+                    "date": 1699014605245,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   ModalBody,\r\n   ModalCloseButton,\r\n } from '@chakra-ui/react'\r\n \r\n-type Props:{\r\n+type Props={\r\n   isOpen:boolean,\r\n }\r\n \r\n  const ModalBodyForm=()=>{\r\n"
+                },
+                {
+                    "date": 1699014615127,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n } from '@chakra-ui/react'\r\n \r\n type Props={\r\n   isOpen:boolean,\r\n-  onClose:()=\r\n+  onClose:()=>\r\n }\r\n \r\n  const ModalBodyForm=()=>{\r\n return (\r\n"
+                },
+                {
+                    "date": 1699014623233,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \r\n type Props={\r\n   isOpen:boolean,\r\n   onClose:()=>void,\r\n-  onOpen:()\r\n+  onOpen:()=\r\n }\r\n \r\n  const ModalBodyForm=()=>{\r\n return (\r\n"
+                }
+            ],
+            "date": 1699014559245,
+            "name": "Commit-0",
+            "content": "import React from \"react\"\r\nimport {\r\n  Modal,\r\n  ModalOverlay,\r\n  ModalContent,\r\n  ModalHeader,\r\n  ModalFooter,\r\n  ModalBody,\r\n  ModalCloseButton,\r\n} from '@chakra-ui/react'\r\n\r\ntype\r\n\r\n const ModalBodyForm=()=>{\r\nreturn (\r\n    <div>\r\n         <Modal isOpen={isOpen} onClose={onClose}>\r\n        <ModalOverlay />\r\n        <ModalContent>\r\n          <ModalHeader>Modal Title</ModalHeader>\r\n          <ModalCloseButton />\r\n          <ModalBody>\r\n            lorem\r\n          </ModalBody>\r\n\r\n          <ModalFooter>\r\n            <Button colorScheme='blue' mr={3} onClick={onClose}>\r\n              Close\r\n            </Button>\r\n            <Button variant='ghost'>Secondary Action</Button>\r\n          </ModalFooter>\r\n        </ModalContent>\r\n      </Modal>\r\n    </div>\r\n)\r\n}\r\n\r\nexport default ModalBodyForm"
+        }
+    ]
+}

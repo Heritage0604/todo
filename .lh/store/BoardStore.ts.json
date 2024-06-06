@@ -1,0 +1,26 @@
+{
+    "sourceFile": "store/BoardStore.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1699052137774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1699052150391,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     setBoard:(board:Board)=>void,\r\n     updateTodoInDB:(todo:Todo , columnId:TypedColumn)=> Promise<\"Success\" | \"Failure\">,\r\n     searchString:string;\r\n     setSearchString:(searchString:string)=>void,\r\n-    addToDB:(title:string)\r\n+    addToDB:(title:string,)\r\n }\r\n \r\n export const useBoardStore = create<BoardState>((set) => ({\r\n board:{\r\n"
+                },
+                {
+                    "date": 1699052158890,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     setBoard:(board:Board)=>void,\r\n     updateTodoInDB:(todo:Todo , columnId:TypedColumn)=> Promise<\"Success\" | \"Failure\">,\r\n     searchString:string;\r\n     setSearchString:(searchString:string)=>void,\r\n-    addToDB:(title:string,status:)\r\n+    addToDB:(title:string,status:Typed)\r\n }\r\n \r\n export const useBoardStore = create<BoardState>((set) => ({\r\n board:{\r\n"
+                }
+            ],
+            "date": 1699052137774,
+            "name": "Commit-0",
+            "content": "import getTodosGroupedByColumns from \"@/lib/getTodosGroupedByColumns\";\r\nimport { Board, TypedColumn,Column, Todo } from \"@/typings\";\r\nimport { create } from \"zustand\";\r\nimport { collection, doc, query, updateDoc, where } from \"firebase/firestore\";\r\nimport { db } from \"@/firebaseConfig\";\r\n\r\ninterface BoardState{\r\n    board:Board,\r\n    getBoard:()=>void,\r\n    setBoard:(board:Board)=>void,\r\n    updateTodoInDB:(todo:Todo , columnId:TypedColumn)=> Promise<\"Success\" | \"Failure\">,\r\n    searchString:string;\r\n    setSearchString:(searchString:string)=>void,\r\n    addToDB:\r\n}\r\n\r\nexport const useBoardStore = create<BoardState>((set) => ({\r\nboard:{\r\n    columns:new Map<TypedColumn,Column>()\r\n},\r\n\r\ngetBoard:async()=>{\r\n    const board=await getTodosGroupedByColumns();\r\n    set({board});\r\n},\r\nsetBoard:(board)=>set({board}),\r\n\r\nupdateTodoInDB:async(todo,columnId)=>{\r\ntry{\r\n    const TodosRef = doc(db, \"todoList\", todo.id);\r\n    const success='Success'\r\nawait updateDoc(TodosRef, {\r\n  status:columnId\r\n});\r\nreturn success\r\n}\r\ncatch(e:any){\r\n    const failure='Failure'\r\nreturn failure\r\n}\r\n\r\n},\r\nsearchString:\"\",\r\nsetSearchString:(searchString)=>{\r\nset({searchString})\r\n}\r\n\r\n}))"
+        }
+    ]
+}

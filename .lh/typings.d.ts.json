@@ -1,0 +1,34 @@
+{
+    "sourceFile": "typings.d.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1699054292809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1699054327894,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n export type TypedColumn=\"todo\"|\"inprogress\"|\"done\"\r\n export interface Todo{\r\n     title:string,\r\n-    image?:string,\r\n+    image?:Image,\r\n     status:TypedColumn,\r\n     updatedAt:Timestamp,\r\n     id:string,\r\n } \r\n"
+                },
+                {
+                    "date": 1699054350772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,8 @@\n export interface Board{\r\n     columns: Map<TypedColumn,Column>\r\n }\r\n \r\n-interface Image{\r\n+export interface Image{\r\n     bucketId:string;\r\n     fileId:string\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1699118178889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+import { Timestamp } from \"firebase/firestore\"\r\n+\r\n+export type TypedColumn=\"todo\"|\"inprogress\"|\"done\"\r\n+export interface Todo{\r\n+    title:string,\r\n+    image?:Image,\r\n+    status:TypedColumn,\r\n+    updatedAt:Timestamp,\r\n+    id:string,\r\n+} \r\n+export interface Column{\r\n+id:TypedColumn,\r\n+todos:Todo[]\r\n+}\r\n+export interface Board{\r\n+    columns: Map<TypedColumn,Column>\r\n+}\r\n+\r\n+export interface ImageArray{\r\n+    bucketId:string;\r\n+    fileId:string\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1699118190181,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n export type TypedColumn=\"todo\"|\"inprogress\"|\"done\"\r\n export interface Todo{\r\n     title:string,\r\n-    image?:Image,\r\n+    image?:ImageObject,\r\n     status:TypedColumn,\r\n     updatedAt:Timestamp,\r\n     id:string,\r\n } \r\n@@ -15,30 +15,8 @@\n export interface Board{\r\n     columns: Map<TypedColumn,Column>\r\n }\r\n \r\n-export interface ImageArray{\r\n+export interface ImageObject{\r\n     bucketId:string;\r\n     fileId:string\r\n-}\n-import { Timestamp } from \"firebase/firestore\"\r\n-\r\n-export type TypedColumn=\"todo\"|\"inprogress\"|\"done\"\r\n-export interface Todo{\r\n-    title:string,\r\n-    image?:Image,\r\n-    status:TypedColumn,\r\n-    updatedAt:Timestamp,\r\n-    id:string,\r\n-} \r\n-export interface Column{\r\n-id:TypedColumn,\r\n-todos:Todo[]\r\n-}\r\n-export interface Board{\r\n-    columns: Map<TypedColumn,Column>\r\n-}\r\n-\r\n-export interface Image{\r\n-    bucketId:string;\r\n-    fileId:string\r\n }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1699054292809,
+            "name": "Commit-0",
+            "content": "import { Timestamp } from \"firebase/firestore\"\r\n\r\nexport type TypedColumn=\"todo\"|\"inprogress\"|\"done\"\r\nexport interface Todo{\r\n    title:string,\r\n    image?:string,\r\n    status:TypedColumn,\r\n    updatedAt:Timestamp,\r\n    id:string,\r\n} \r\nexport interface Column{\r\nid:TypedColumn,\r\ntodos:Todo[]\r\n}\r\nexport interface Board{\r\n    columns: Map<TypedColumn,Column>\r\n}\r\n\r\ninterface Image{\r\n    bucketId:string;\r\n    fileId:string\r\n}"
+        }
+    ]
+}

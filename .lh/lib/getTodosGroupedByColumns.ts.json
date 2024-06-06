@@ -1,0 +1,50 @@
+{
+    "sourceFile": "lib/getTodosGroupedByColumns.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1699055482968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1699055497318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n         updatedAt:todo.updatedAt,\r\n         title:todo.title,\r\n         status:todo.status,\r\n         id:todo.id,\r\n-        ...(todo.image && {image:(todo.image)})\r\n+        ...(todo.image && {image:JSON.parse(todo.image)})\r\n       }\r\n     )\r\n \r\n     return acc\r\n"
+                },
+                {
+                    "date": 1699055586218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n         updatedAt:todo.updatedAt,\r\n         title:todo.title,\r\n         status:todo.status,\r\n         id:todo.id,\r\n-        ...(todo.image && {image:JSON.parse(todo.image)})\r\n+        ...(todo.image && {image:(todo.image)})\r\n       }\r\n     )\r\n \r\n     return acc\r\n"
+                },
+                {
+                    "date": 1699055602627,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n         updatedAt:todo.updatedAt,\r\n         title:todo.title,\r\n         status:todo.status,\r\n         id:todo.id,\r\n-        ...(todo.image && {image:(todo.image)})\r\n+        ...(todo.image && {image:todo.image)})\r\n       }\r\n     )\r\n \r\n     return acc\r\n"
+                },
+                {
+                    "date": 1699056057223,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n   todoArrays.push({...doc.data(),id:doc.id})\r\n   // console.log(doc.id, \" => \", doc.data());\r\n });\r\n \r\n+\r\n   \r\n const columns:Map<TypedColumn,Column>=todoArrays.reduce((acc:Map<TypedColumn,Column>,todo:DocumentData)=>{\r\n     if(!acc.get(todo.status)){\r\n       acc.set(todo.status,{\r\n@@ -27,9 +28,9 @@\n         updatedAt:todo.updatedAt,\r\n         title:todo.title,\r\n         status:todo.status,\r\n         id:todo.id,\r\n-        ...(todo.image && {image:todo.image)})\r\n+        ...(todo.image && {image:(todo.image)})\r\n       }\r\n     )\r\n \r\n     return acc\r\n"
+                },
+                {
+                    "date": 1699056066530,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n   todoArrays.push({...doc.data(),id:doc.id})\r\n   // console.log(doc.id, \" => \", doc.data());\r\n });\r\n \r\n+console.log(todoArrays)\r\n \r\n   \r\n const columns:Map<TypedColumn,Column>=todoArrays.reduce((acc:Map<TypedColumn,Column>,todo:DocumentData)=>{\r\n     if(!acc.get(todo.status)){\r\n"
+                },
+                {
+                    "date": 1699056333927,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,11 @@\n \r\n \r\n },new Map<TypedColumn,Column>)\r\n \r\n+console.log(colum)\r\n \r\n+\r\n const columnTypes:TypedColumn[]=['todo','inprogress','done']\r\n \r\n for(const columnType of columnTypes){\r\n     if(!columns.get(columnType)){\r\n"
+                },
+                {
+                    "date": 1699057157773,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,10 @@\n   todoArrays.push({...doc.data(),id:doc.id})\r\n   // console.log(doc.id, \" => \", doc.data());\r\n });\r\n \r\n-console.log(todoArrays)\r\n \r\n+\r\n   \r\n const columns:Map<TypedColumn,Column>=todoArrays.reduce((acc:Map<TypedColumn,Column>,todo:DocumentData)=>{\r\n     if(!acc.get(todo.status)){\r\n       acc.set(todo.status,{\r\n@@ -38,9 +38,9 @@\n \r\n \r\n },new Map<TypedColumn,Column>)\r\n \r\n-console.log(colum)\r\n+console.log(columns)\r\n \r\n \r\n const columnTypes:TypedColumn[]=['todo','inprogress','done']\r\n \r\n"
+                },
+                {
+                    "date": 1699057209298,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,11 +38,11 @@\n \r\n \r\n },new Map<TypedColumn,Column>)\r\n \r\n-console.log(columns)\r\n \r\n \r\n+\r\n const columnTypes:TypedColumn[]=['todo','inprogress','done']\r\n \r\n for(const columnType of columnTypes){\r\n     if(!columns.get(columnType)){\r\n"
+                }
+            ],
+            "date": 1699055482968,
+            "name": "Commit-0",
+            "content": "import { db } from \"@/firebaseConfig\"\r\nimport { Board, Column, Todo, TypedColumn } from \"@/typings\";\r\nimport { DocumentData, collection, getDocs } from \"firebase/firestore\";\r\n\r\nconst getTodosGroupedByColumns = async() => {\r\n\r\n  const todoArrays:DocumentData=[]\r\nconst querySnapshot = await getDocs(collection(db, \"todoList\"));\r\n// console.log(querySnapshot)\r\nquerySnapshot.forEach((doc) => {\r\n  // doc.data() is never undefined for query doc snapshots\r\n  todoArrays.push({...doc.data(),id:doc.id})\r\n  // console.log(doc.id, \" => \", doc.data());\r\n});\r\n\r\n  \r\nconst columns:Map<TypedColumn,Column>=todoArrays.reduce((acc:Map<TypedColumn,Column>,todo:DocumentData)=>{\r\n    if(!acc.get(todo.status)){\r\n      acc.set(todo.status,{\r\n        id:todo.status,\r\n        todos:[]\r\n      })\r\n      \r\n    }\r\n    acc.get(todo.status)!.todos.push(\r\n      {\r\n        updatedAt:todo.updatedAt,\r\n        title:todo.title,\r\n        status:todo.status,\r\n        id:todo.id,\r\n        ...(todo.image && {image:(todo.image)})\r\n      }\r\n    )\r\n\r\n    return acc\r\n\r\n\r\n},new Map<TypedColumn,Column>)\r\n\r\n\r\nconst columnTypes:TypedColumn[]=['todo','inprogress','done']\r\n\r\nfor(const columnType of columnTypes){\r\n    if(!columns.get(columnType)){\r\n        columns.set(\r\n            columnType,{\r\n                id:columnType,\r\n                todos:[]\r\n            }\r\n        )\r\n    }\r\n}\r\n\r\nconst sortedColumns= new Map(\r\n   Array.from(columns.entries()).sort((a,b)=>(\r\n    columnTypes.indexOf(a[0]) -columnTypes.indexOf(b[0])\r\n   ))\r\n)\r\n\r\nconst board:Board={\r\n    columns:sortedColumns\r\n}\r\n\r\nreturn board\r\n\r\n}\r\n\r\nexport default getTodosGroupedByColumns"
+        }
+    ]
+}

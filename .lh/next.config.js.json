@@ -1,0 +1,22 @@
+{
+    "sourceFile": "next.config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1698495849720,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1699057276863,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n /** @type {import('next').NextConfig} */\n const nextConfig = {\n     images:{\n-        domains:['links.papareact.com']\n+        domains:['links.papareact.com','firebasestorage.googleapis.com']\n     }\n }\n \n module.exports = nextConfig\n"
+                }
+            ],
+            "date": 1698495849720,
+            "name": "Commit-0",
+            "content": "/** @type {import('next').NextConfig} */\nconst nextConfig = {\n    images:{\n        domains:['links.papareact.com']\n    }\n}\n\nmodule.exports = nextConfig\n"
+        }
+    ]
+}

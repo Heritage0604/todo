@@ -1,0 +1,66 @@
+{
+    "sourceFile": "components/TodoCard.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1699055664007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1699055671354,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n     ref={innerRef}\r\n     >\r\n         <div>\r\n             <p>{todo.title}</p>\r\n-            <img src={todo.i}\r\n+            <img src={todo.image?.fileId}\r\n             <button className='text-red-500 hover:text-red-600'>\r\n                 <MdCancel className='ml-5 h-8 w-8'/>\r\n             </button>\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1699055678888,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n     ref={innerRef}\r\n     >\r\n         <div>\r\n             <p>{todo.title}</p>\r\n-            <img src={todo.image?.fileId}\r\n+            <img src={todo.image?.fileId} alt=\"\"/>\r\n             <button className='text-red-500 hover:text-red-600'>\r\n                 <MdCancel className='ml-5 h-8 w-8'/>\r\n             </button>\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1699055703787,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,10 @@\n     ref={innerRef}\r\n     >\r\n         <div>\r\n             <p>{todo.title}</p>\r\n-            <img src={todo.image?.fileId} alt=\"\"/>\r\n+            <img src={todo.image?.fileId} alt=\"Hello\"/>\r\n+            Hey man\r\n             <button className='text-red-500 hover:text-red-600'>\r\n                 <MdCancel className='ml-5 h-8 w-8'/>\r\n             </button>\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1699055794884,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n     >\r\n         <div>\r\n             <p>{todo.title}</p>\r\n             <img src={todo.image?.fileId} alt=\"Hello\"/>\r\n-            Hey man\r\n+           \r\n             <button className='text-red-500 hover:text-red-600'>\r\n                 <MdCancel className='ml-5 h-8 w-8'/>\r\n             </button>\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1699055849071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n     dragHandleProps:DraggableProvidedDragHandleProps | null | undefined;\r\n }\r\n \r\n const TodoCard = ({todo,index,id,innerRef,draggableProps,dragHandleProps}: Props) => {\r\n+    console.log(todo)\r\n   return (\r\n        <div\r\n     className='bg-white rounded-md space-y-2 drop-shadow-md'\r\n     {...draggableProps}\r\n"
+                },
+                {
+                    "date": 1699055969680,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,8 @@\n     dragHandleProps:DraggableProvidedDragHandleProps | null | undefined;\r\n }\r\n \r\n const TodoCard = ({todo,index,id,innerRef,draggableProps,dragHandleProps}: Props) => {\r\n-    console.log(todo)\r\n   return (\r\n        <div\r\n     className='bg-white rounded-md space-y-2 drop-shadow-md'\r\n     {...draggableProps}\r\n"
+                },
+                {
+                    "date": 1699056416572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n     dragHandleProps:DraggableProvidedDragHandleProps | null | undefined;\r\n }\r\n \r\n const TodoCard = ({todo,index,id,innerRef,draggableProps,dragHandleProps}: Props) => {\r\n+    console.log()\r\n   return (\r\n        <div\r\n     className='bg-white rounded-md space-y-2 drop-shadow-md'\r\n     {...draggableProps}\r\n"
+                },
+                {
+                    "date": 1699056517758,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     dragHandleProps:DraggableProvidedDragHandleProps | null | undefined;\r\n }\r\n \r\n const TodoCard = ({todo,index,id,innerRef,draggableProps,dragHandleProps}: Props) => {\r\n-    console.log()\r\n+    console.log(todo)\r\n   return (\r\n        <div\r\n     className='bg-white rounded-md space-y-2 drop-shadow-md'\r\n     {...draggableProps}\r\n@@ -22,9 +22,9 @@\n     ref={innerRef}\r\n     >\r\n         <div>\r\n             <p>{todo.title}</p>\r\n-            <img src={todo.image?.fileId} alt=\"Hello\"/>\r\n+            <img src={`https://firebasestorage.googleapis.com/v0/b/trelloclone-1fb98.appspot.com/o/todo%2FSat%20Nov%2004%202023%2001%3A03%3A55%20GMT%2B0100%20(West%20Africa%20Standard%20Time)%2Fimage?alt=media&token=28813c63-0e35-4640-92ed-f9cca48ea805%22[[Prototype]]:%20Objectlength:%201[[Prototype]]:%20Array(0)status:%20%22todo%22title:%20%22Listen%20to%20music%22updatedAt:%20Timestamp%20{seconds:%201699056235,%20nanoseconds:%20587000000}[[Prototype]]:%20Object`} alt=\"Hello\"/>\r\n            \r\n             <button className='text-red-500 hover:text-red-600'>\r\n                 <MdCancel className='ml-5 h-8 w-8'/>\r\n             </button>\r\n"
+                },
+                {
+                    "date": 1699056538422,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n     ref={innerRef}\r\n     >\r\n         <div>\r\n             <p>{todo.title}</p>\r\n-            <img src={`https://firebasestorage.googleapis.com/v0/b/trelloclone-1fb98.appspot.com/o/todo%2FSat%20Nov%2004%202023%2001%3A03%3A55%20GMT%2B0100%20(West%20Africa%20Standard%20Time)%2Fimage?alt=media&token=28813c63-0e35-4640-92ed-f9cca48ea805%22[[Prototype]]:%20Objectlength:%201[[Prototype]]:%20Array(0)status:%20%22todo%22title:%20%22Listen%20to%20music%22updatedAt:%20Timestamp%20{seconds:%201699056235,%20nanoseconds:%20587000000}[[Prototype]]:%20Object`} alt=\"Hello\"/>\r\n+            <img src={todo.image?.fileId} alt=\"Hello\"/>\r\n            \r\n             <button className='text-red-500 hover:text-red-600'>\r\n                 <MdCancel className='ml-5 h-8 w-8'/>\r\n             </button>\r\n"
+                },
+                {
+                    "date": 1699056562942,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,37 @@\n+import { Todo, TypedColumn } from '@/typings'\r\n+import React from 'react'\r\n+import { DraggableProvidedDragHandleProps, DraggableProvidedDraggableProps } from 'react-beautiful-dnd';\r\n+import {MdCancel} from 'react-icons/md'\r\n+\r\n+type Props = {\r\n+       todo:Todo,\r\n+    index:number,\r\n+    id:TypedColumn,\r\n+    innerRef:(element:HTMLElement | null)=>void,\r\n+    draggableProps:DraggableProvidedDraggableProps,\r\n+    dragHandleProps:DraggableProvidedDragHandleProps | null | undefined;\r\n+}\r\n+\r\n+const TodoCard = ({todo,index,id,innerRef,draggableProps,dragHandleProps}: Props) => {\r\n+    console.log(todo)\r\n+  return (\r\n+       <div\r\n+    className='bg-white rounded-md space-y-2 drop-shadow-md'\r\n+    {...draggableProps}\r\n+    {...dragHandleProps}\r\n+    ref={innerRef}\r\n+    >\r\n+        <div>\r\n+            <p>{todo.title}</p>\r\n+            \r\n+           \r\n+            <button className='text-red-500 hover:text-red-600'>\r\n+                <MdCancel className='ml-5 h-8 w-8'/>\r\n+            </button>\r\n+        </div>\r\n+        {/* add image here */}\r\n+    </div>\r\n+  )\r\n+}\r\n+\r\n+export default TodoCard\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1699056574417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n     ref={innerRef}\r\n     >\r\n         <div>\r\n             <p>{todo.title}</p>\r\n-            <Image src={}\r\n+            <Image src={todo.ima}\r\n            \r\n             <button className='text-red-500 hover:text-red-600'>\r\n                 <MdCancel className='ml-5 h-8 w-8'/>\r\n             </button>\r\n"
+                },
+                {
+                    "date": 1699056580956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n     ref={innerRef}\r\n     >\r\n         <div>\r\n             <p>{todo.title}</p>\r\n-            <Image src={todo.image?.fileId} \r\n+            <Image src={todo.image?.fileId} a\r\n            \r\n             <button className='text-red-500 hover:text-red-600'>\r\n                 <MdCancel className='ml-5 h-8 w-8'/>\r\n             </button>\r\n"
+                }
+            ],
+            "date": 1699055664007,
+            "name": "Commit-0",
+            "content": "import { Todo, TypedColumn } from '@/typings'\r\nimport React from 'react'\r\nimport { DraggableProvidedDragHandleProps, DraggableProvidedDraggableProps } from 'react-beautiful-dnd';\r\nimport {MdCancel} from 'react-icons/md'\r\n\r\ntype Props = {\r\n       todo:Todo,\r\n    index:number,\r\n    id:TypedColumn,\r\n    innerRef:(element:HTMLElement | null)=>void,\r\n    draggableProps:DraggableProvidedDraggableProps,\r\n    dragHandleProps:DraggableProvidedDragHandleProps | null | undefined;\r\n}\r\n\r\nconst TodoCard = ({todo,index,id,innerRef,draggableProps,dragHandleProps}: Props) => {\r\n  return (\r\n       <div\r\n    className='bg-white rounded-md space-y-2 drop-shadow-md'\r\n    {...draggableProps}\r\n    {...dragHandleProps}\r\n    ref={innerRef}\r\n    >\r\n        <div>\r\n            <p>{todo.title}</p>\r\n            <img src={todo.i}\r\n            <button className='text-red-500 hover:text-red-600'>\r\n                <MdCancel className='ml-5 h-8 w-8'/>\r\n            </button>\r\n        </div>\r\n        {/* add image here */}\r\n    </div>\r\n  )\r\n}\r\n\r\nexport default TodoCard"
+        }
+    ]
+}
